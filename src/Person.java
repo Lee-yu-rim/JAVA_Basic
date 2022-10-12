@@ -1,12 +1,33 @@
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 
 public class Person {
-//	객체 : 상속, 다형성, 캡슐화(정보은닉)
+	String name;
+	int age;
+	
+//	@Override
+//	public int hashCode() {
+//		return (this.name + this.age).hashCode();
+//	}
 //	
-//	속성 : 눈,코,입 ...,이름,나이,키,성격
-//	- 변수(배열)로 표현 
-//	  -- 인스터스 변수 / 클래스 변수(static)
-//	기능(행위) : 걷기,달리기,말...,자기소개
-//	- 메소드(함수)로 표현
-//	  -- 인스턴스 메소드 / 클래스 메소드(static)
+//	@Override
+//	public boolean equals(Object obj) {
+//		Person another = (Person)obj;
+//		return this.name.equals(another.name) && this.age == another.age;
+//	}
+	
+	
+	
+
+	
+	
+	
+	
+	
+
 }
- 

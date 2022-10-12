@@ -1,51 +1,37 @@
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
-public class Student {
+@AllArgsConstructor
+@ToString
+
+public class Student implements Comparable {
 	
-	String name;//학생이름
-	int ban;//반
-	int no;//번호
-	int kor;//국어점수
-	int eng;//영어점수
-	int math;//수학점수
-	
-	Student(String name,int ban,int no,int kor,int eng,int math){
-		this.name = name;
-		this.ban = ban;
-		this.no = no;
-		this.kor = kor;
-		this.eng = eng;
-		this.math = math;
-		
-	}
-	
+	String name;
+	int ban;
+	int no;
+	int kor,eng,math;
+
 	int getTotal() {
 		return kor + eng + math;
 	}
 	
-	double getAverage() {
-		return (int)(getTotal() / 3.0 * 10 + 0.5) / 10.0;  //78.666664
+	float getAvg() {
+		return getTotal() / 3.0f;
 	}
 	
-//	78.666664 * 10  //786.6664
-//	786.66664 + 0.5 //787.16664
-//	(int)787.16664  //787
-//	787 / 10.0  //78.7
+	//반을 이용해서 정렬하는 메소드
+	@Override
+	public int compareTo(Object o) {  //직접 호출하는 메소드가 아닌 TreeSet클래스에서 내부적으로 사용하는 메소드
+		
+		if(o instanceof Student) {
+			Student tmp = (Student)o;
+			//return this.ban - tmp.ban;   //오름차순  //값이 0이면 같은 값, 양수면 앞에 값이 큰 값, 음수면 뒤에 값이 큰 값 -> TreeSet에서 내부적으로 차액값으로 정렬함 
+			return  tmp.ban - this.ban;    //내림차순
+		}
+		
+		return -1;
+	}
 	
-	
-	
-	
-	
-//	String name;
-//	int age;
-//	int grade;
-//	
-//	Student(String name,int age,int grade){
-//		this.name = name;
-//		this.age = age;
-//		this.grade = grade;	
-//	}
-	
-
 	
 
 }
